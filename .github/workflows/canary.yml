@@ -321,8 +321,8 @@ jobs:
       id-token: write
 
     # win-arm64 is phase 2: add an arch matrix here together with the
-    # windows-11-arm runner and the VS ARM64 build tools steps from
-    # win.yml when the canary channels grow an arm feed.
+    # windows-11-arm runner and the VS ARM64 build tools setup when the
+    # canary channels grow an arm feed.
 
     outputs:
       signed: ${{ steps.sign.outputs.signed }}
