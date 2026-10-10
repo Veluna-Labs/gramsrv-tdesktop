@@ -121,7 +121,6 @@ jobs:
   version:
     name: Version
     runs-on: depot-ubuntu-latest
-    environment: canary
     # Belt and braces next to the environment branch policy: the secrets
     # are never even requested from a run that is not a push to a canary
     # branch (the lane check below then pins the branch to the lane).
@@ -310,7 +309,6 @@ jobs:
     name: Windows x64 (${{ needs.version.outputs.channel }})
     runs-on: depot-windows-latest-32
     needs: version
-    environment: canary
 
     permissions:
       contents: read
@@ -736,7 +734,6 @@ jobs:
     runs-on: depot-ubuntu-latest
     needs: [version, windows]
     if: needs.version.outputs.publish == 'true'
-    environment: canary
 
     permissions:
       contents: read
