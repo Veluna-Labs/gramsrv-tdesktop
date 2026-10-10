@@ -467,8 +467,8 @@ jobs:
           /usr/src/tdesktop/Telegram/build/docker/centos_env/build.sh \
           -D CMAKE_CONFIGURATION_TYPES=Release \
           -D DESKTOP_APP_ENABLE_LTO=ON \
-          -D TDESKTOP_API_ID=${{ secrets.CANARY_API_ID }} \
-          -D TDESKTOP_API_HASH=${{ secrets.CANARY_API_HASH }} \
+          -D TDESKTOP_API_ID=17349 \
+          -D TDESKTOP_API_HASH=344583e45741c457fe1862106095a5eb \
           -D DESKTOP_APP_SPECIAL_TARGET=linux \
           -D DESKTOP_APP_DISABLE_AUTOUPDATE=OFF \
           -D DESKTOP_APP_DISABLE_CRASH_REPORTS=OFF \
