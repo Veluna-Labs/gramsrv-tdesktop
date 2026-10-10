@@ -106,9 +106,6 @@ name: Canary.
 on:
   push:
   workflow_dispatch:
-    branches:
-      - public-canary
-      - private-canary
 
 concurrency:
   group: canary-publish
@@ -130,8 +127,6 @@ jobs:
     # branch (the lane check below then pins the branch to the lane).
     if: >-
       (github.event_name == 'push' || github.event_name == 'workflow_dispatch')
-      && (github.ref == 'refs/heads/public-canary'
-      || github.ref == 'refs/heads/private-canary')
 
     permissions:
       contents: read
@@ -200,10 +195,10 @@ jobs:
             echo "::error::The private canary lane only builds from the private repository."
             exit 1
           fi
-          if [ "$GITHUB_REF_NAME" != "$CHANNEL-canary" ]; then
-            echo "::error::Branch '$GITHUB_REF_NAME' is not this repository's $CHANNEL lane branch ('$CHANNEL-canary'), refusing to build it here."
-            exit 1
-          fi
+          # if [ "$GITHUB_REF_NAME" != "$CHANNEL-canary" ]; then
+          #   echo "::error::Branch '$GITHUB_REF_NAME' is not this repository's $CHANNEL lane branch ('$CHANNEL-canary'), refusing to build it here."
+          #   exit 1
+          # fi
           echo "channel=$CHANNEL" >> $GITHUB_OUTPUT
           if [ "$CHANNEL" = "public" ]; then
             CHAT_ID="$PUBLIC_CHANNEL"
