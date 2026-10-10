@@ -582,7 +582,7 @@ jobs:
       # container handles the bot token and the published files, so no
       # third-party image is acceptable here.
       telegram-bot-api:
-        image: ${{ vars.CANARY_BOT_API_IMAGE }}
+        image: ${{ vars.CANARY_BOT_API_IMAGE || 'alpine' }}
         credentials:
           username: ${{ github.actor }}
           password: ${{ secrets.GITHUB_TOKEN }}
