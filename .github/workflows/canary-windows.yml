@@ -101,7 +101,6 @@
 # Publishing no-ops cleanly while CANARY_BOT_TOKEN is absent, so the
 # workflow can run before the bots/channels/KeyLocker exist.
 
-name: Canary.
 name: Canary Windows.
 on:
   push:
