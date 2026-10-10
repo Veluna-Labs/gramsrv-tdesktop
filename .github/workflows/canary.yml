@@ -129,7 +129,7 @@ jobs:
     # are never even requested from a run that is not a push to a canary
     # branch (the lane check below then pins the branch to the lane).
     if: >-
-      github.event_name == 'push'
+      (github.event_name == 'push' || github.event_name == 'workflow_dispatch')
       && (github.ref == 'refs/heads/public-canary'
       || github.ref == 'refs/heads/private-canary')
 
