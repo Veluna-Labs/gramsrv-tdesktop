@@ -139,7 +139,7 @@ jobs:
 
   windows:
     name: Windows x64 (${{ needs.version.outputs.channel }})
-    runs-on: depot-windows-latest-32
+    runs-on: windows-latest
     needs: version
 
     permissions:

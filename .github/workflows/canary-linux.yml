@@ -119,7 +119,7 @@ jobs:
 
   version:
     name: Version
-    runs-on: depot-ubuntu-latest
+    runs-on: ubuntu-latest
     if: >-
       (github.event_name == 'push' || github.event_name == 'workflow_dispatch')
     outputs:
@@ -142,7 +142,7 @@ jobs:
   # x86_64;arm64 compile. All of the signing still happens there, once.
   linux:
     name: Linux x64 (${{ needs.version.outputs.channel }})
-    runs-on: depot-ubuntu-latest-32
+    runs-on: ubuntu-latest
     needs: version
 
     permissions:
